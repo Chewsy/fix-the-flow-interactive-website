@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const articles = document.querySelectorAll('#articles article');
 
-    const hrSelect = document.getElementById('hr-select');
-    if (hrSelect && articles.length) {
-        hrSelect.addEventListener('change', e => {
+    const Select = document.getElementById('select');
+    if (Select && articles.length) {
+        Select.addEventListener('change', e => {
             const selected = Array.from(e.target.selectedOptions, opt => opt.value).filter(v => v);
 
             articles.forEach(article => {
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const shareBtn = document.getElementById('shareBtn');
     if (shareBtn) {
         shareBtn.addEventListener('click', async () => {
-            const pageUrl = window.location.href;
+            const pageUrl = window.location.ef;
             const title = document.querySelector('article h1') ? document.querySelector('article h1').textContent : document.title;
             if (navigator.share) {
                 try {
@@ -58,4 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // 1. Selecteer alle icon classes waarmee ik een opmerking kan liken
+    document.querySelectorAll('.fa-thumbs-up').forEach(button => {
+        // 2. Wacht tot iemand erop klikt
+        button.addEventListener('click', function () {
+            // 3. Toggle de class van mijn iconen, zodat deze gekleurd wordt
+            this.classList.toggle("isLiked");
+        });
+    });
 });
