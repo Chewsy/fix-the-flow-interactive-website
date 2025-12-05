@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+        // == ARTIKEL FILTER SYSTEEM ==
     const articles = document.querySelectorAll('#articles article');
 
     const Select = document.getElementById('select');
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+        // == SHARE SYSTEEM ==
     const shareBtn = document.getElementById('shareBtn');
     if (shareBtn) {
         shareBtn.addEventListener('click', async () => {
@@ -27,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (navigator.clipboard && navigator.clipboard.writeText) {
                 try {
                     await navigator.clipboard.writeText(pageUrl);
-                    alert('Link copied to clipboard');
+                    alert('Link copied to clipboard!');
                 } catch (err) {
                     alert('Copy failed');
                 }
@@ -47,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // == TERUGKNOP NAAR HOMEPAGE ==
     const backBtn = document.getElementById('backBtn');
     if (backBtn) {
         backBtn.addEventListener('click', (e) => {
@@ -59,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // == OPMERKINGEN LIKEN ==
     // 1. Selecteer alle icon classes waarmee ik een opmerking kan liken
     document.querySelectorAll('.fa-thumbs-up').forEach(button => {
         // 2. Wacht tot iemand erop klikt
